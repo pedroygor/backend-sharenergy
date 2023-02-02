@@ -1,38 +1,25 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Back-end Desafio Sharenergy
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API de Clientes que permite Criar, Atualizar, Buscar e Remover.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Funcionalidades
 
-## Description
+- Criar Cliente
+- Buscar Clientes
+- Atualizar Clientes
+- Remover Clientes
+- Buscar Cliente por ID
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Instalação
 
-## Installation
+Instale o backend com npm
 
 ```bash
-$ npm install
+  cd backend
+  npm install
 ```
 
-## Running the app
+### Rodando o backend
 
 ```bash
 # development
@@ -45,29 +32,90 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Stack utilizada
 
-```bash
-# unit tests
-$ npm run test
+**Front-end:** React, Typescript, Jotai, React Hook Form, Phosphor-react, Material UI e Axios
 
-# e2e tests
-$ npm run test:e2e
+**Back-end:** Node, NestJS, MongoDB, Mongoose e Swagger
 
-# test coverage
-$ npm run test:cov
+## Documentação da API
+
+#### Criar cliente
+
+```http
+  POST /users
 ```
 
-## Support
+| Parâmetro | Tipo     | Descrição           |
+| :-------- | :------- | :------------------ |
+| `name`    | `string` | Nome do cliente     |
+| `age`     | `number` | Idade do cliente    |
+| `email`   | `string` | Email do cliente    |
+| `cpf`     | `string` | Cpf do cliente      |
+| `phone`   | `string` | Telefone do cliente |
+| `address` | `object` | Endereço do cliente |
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+`Chaves do objeto Address`
 
-## Stay in touch
+| Parâmetro | Tipo     | Descrição                   |
+| :-------- | :------- | :-------------------------- |
+| `rua`     | `string` | Rua do cliente              |
+| `numero`  | `number` | Número do imóvel do cliente |
+| `bairro`  | `string` | Bairro do cliente           |
+| `cidade`  | `string` | Cidade do cliente           |
+| `estado`  | `string` | Estado do cliente           |
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### Buscar todos os clientes
 
-## License
+```http
+  GET /users
+```
 
-Nest is [MIT licensed](LICENSE).
+#### Buscar um cliente
+
+```http
+  GET /users/${id}
+```
+
+| Parâmetro | Tipo     | Descrição                                      |
+| :-------- | :------- | :--------------------------------------------- |
+| `id`      | `object` | **Obrigatório**. O ID do cliente que você quer |
+
+#### Remover Cliente
+
+```http
+  DELETE /users/${id}
+```
+
+#### Atualizar Cliente
+
+```http
+  PUT /users/${id}
+```
+
+| Parâmetro | Tipo     | Descrição           |
+| :-------- | :------- | :------------------ |
+| `name`    | `string` | Nome do cliente     |
+| `age`     | `number` | Idade do cliente    |
+| `email`   | `string` | Email do cliente    |
+| `cpf`     | `string` | Cpf do cliente      |
+| `phone`   | `string` | Telefone do cliente |
+| `address` | `object` | Endereço do cliente |
+
+`Chaves do objeto Address`
+
+| Parâmetro | Tipo     | Descrição                   |
+| :-------- | :------- | :-------------------------- |
+| `rua`     | `string` | Rua do cliente              |
+| `numero`  | `number` | Número do imóvel do cliente |
+| `bairro`  | `string` | Bairro do cliente           |
+| `cidade`  | `string` | Cidade do cliente           |
+| `estado`  | `string` | Estado do cliente           |
+
+## Documentação
+
+[Documentação com swagger](http://localhost:3000/api)
+
+## Autor
+
+- [@pedroygor](https://www.github.com/pedroygor)

@@ -12,11 +12,12 @@ API de Clientes que permite Criar, Atualizar, Buscar e Remover.
 
 ## Instalação
 
-Instale o backend com npm
-
 ```bash
-  cd backend
-  npm install
+# Clonar Projeto
+$ git clone https://github.com/pedroygor/backend-sharenergy.git
+
+# Entrar no diretório
+$ cd backend-sharenergy
 ```
 
 ### Rodando o backend
@@ -31,6 +32,7 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+Porta - [http://localhost:3000](http://localhost:3000)  
 
 ## Stack utilizada
 
